@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>State instructions · Operation ID</title>
+  <link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header><div class="brand">OPERATION ID <small>State instructions</small></div><a href="../">Back to guide</a></header>
+  <main>
+    <h1>State instructions</h1>
+    <p id="status" role="status" aria-live="polite">Checking sign-in…</p>
+    <section id="login-panel" hidden>
+      <h2>Admin sign in</h2>
+      <form id="login">
+        <label class="field" for="email">Email</label><input id="email" type="email" autocomplete="username" required>
+        <label class="field" for="password">Password</label><input id="password" type="password" autocomplete="current-password" required>
+        <button class="primary" type="submit">Sign in</button>
+      </form>
+    </section>
+    <div class="actions"><button id="logout" class="quiet" hidden>Log out</button></div>
+    <section id="dashboard" hidden>
+      <p>Edit instruction text only. Cover-letter requirements and the guide checklist are maintained separately.</p>
+      <label class="field" for="search">Find a state or territory</label><input id="search" type="search" placeholder="State name or code">
+      <button class="quiet" id="refresh">Refresh list</button>
+      <div class="table-scroll"><table>
+        <thead><tr><th>State</th><th>Code</th><th>Instruction</th><th>Last verified</th><th>Last updated</th><th>Active</th><th>Actions</th></tr></thead>
+        <tbody id="rules"></tbody>
+      </table></div>
+      <form id="editor" hidden>
+        <h2 id="edit-title">Edit state</h2>
+        <p>Changing the state also changes its code. Each state can have only one record.</p>
+        <label class="field" for="state-name">State / territory</label><select id="state-name" required></select>
+        <label class="field" for="state-code">State code</label><select id="state-code" required></select>
+        <label class="field" for="instruction">OPID special instruction</label><textarea id="instruction" rows="6"></textarea>
+        <div id="override-field" hidden><label class="field" for="override" id="override-label">Jurisdiction instruction</label><textarea id="override" rows="4"></textarea></div>
+        <label class="field" for="staff-note">State-specific staff reminder (optional)</label><textarea id="staff-note" rows="3"></textarea>
+        <small>Leave blank to use the guide’s shared reminder. This note is publicly visible.</small>
+        <label class="field" for="source-url">Source URL (optional)</label><input id="source-url" type="url" placeholder="https://">
+        <label class="field" for="last-verified">Last verified (optional)</label><input id="last-verified" type="date">
+        <label class="check"><input id="active" type="checkbox"><span>Active</span></label>
+        <p id="updated"></p>
+        <div class="actions"><button class="primary" type="submit">Save Changes</button><button class="quiet" type="button" id="cancel">Cancel</button></div>
+      </form>
+    </section>
+  </main>
+  <script src="../vendor/supabase-2.57.4.js"></script>
+  <script src="../supabase-config.js"></script><script src="../state-rules.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
