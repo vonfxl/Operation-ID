@@ -30,7 +30,7 @@ function renderDps(){
   h+=group('dpA','Primary identification',dg[0],'Select any one acceptable primary document.').replace('<details>','<details open>');
   h+='<div id="identity-status" aria-live="polite"></div><div id="alternative-identity"><h3>If the client has no primary document</h3><p>Use TWO secondary documents, OR ONE secondary document plus TWO supporting documents.</p>'+group('dpB','Secondary identification',dg[1],'Select two, or select one together with two supporting documents.')+group('dpC','Supporting identification',dg[2],'Needed only when using one secondary document. HOT ID is supporting identification for DPS.')+'</div>';
  }else{
-  h+=group('existing','Identity document for renewal or replacement',['Birth certificate','Social Security card','Voter registration card','HOT ID','Another identity document accepted by DPS (including a Star of Hope Badge)'],'Your staff cheat sheet calls for one identity document. Confirm the specific service requirements with DPS.');
+  h+=group('existing','Identity document for renewal or replacement',['Birth certificate','Social Security card','Voter registration card','HOT ID','Another identity document accepted by DPS (including a Star of Hope Badge)'],'Refer to the DPS Acceptable Documents sheet to find one ID document.');
   if(service==='renew')h+='<p>Bring the birth certificate in case DPS does not have it on file. For clients over 59 needing a new or renewed ID, select that option on the OPID tracking form.</p>';
  }
  h+='<button class="primary" id="evaluate">Show next step</button>';
